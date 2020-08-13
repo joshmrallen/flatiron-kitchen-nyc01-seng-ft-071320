@@ -1,0 +1,5 @@
+<h1>All Ingredients in Inventory</h1>
+<% @ingredients.each do |ingredient| %>
+    <%= render partial: 'info', locals: {ingredient: ingredient} %>
+<% end %>
+<%= render 'recipes/nav_links' %>

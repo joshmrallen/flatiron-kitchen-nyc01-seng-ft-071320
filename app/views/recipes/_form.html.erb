@@ -1,0 +1,15 @@
+<%= form_for recipe do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label 'Choose Recipe Ingredients' %><br><br>
+    <%= f.collection_check_boxes :ingredient_ids, ingredients, :id, :name %><br><br>
+    <%= f.label 'Add a new ingredient if not on the list'%>
+    <%= f.fields_for :ingredients, recipe.ingredients.build do |ingredients_field| %>
+        <%= ingredients_field.text_field :name %>
+    <% end %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<p><%= link_to 'Cancel', recipes_path %></p>
